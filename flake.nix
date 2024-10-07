@@ -7,7 +7,7 @@
 {
   description = "Example bundlers";
 
-  inputs.nix-utils.url = "github:mjakobsche/nix-utils?rev=1943e54a89a89ede99b13ac4240758ac49f7063f";
+  inputs.nix-utils.url = "github:mjakobsche/nix-utils?rev=8d0bad508fbe3c4c718674204aba1dacc7ff92a1";
   inputs.nix-bundle.url = "github:matthewbauer/nix-bundle";
 
   outputs = { self, nixpkgs, nix-bundle, nix-utils }: let
