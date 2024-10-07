@@ -49,7 +49,7 @@
 
       toDEB = drv: nix-utils.bundlers.deb {inherit system; program=program drv;};
 
-      showPackage = drv: builtins.trace "package: ${toString drv}" (toDEB drv);
+      showPackage = drv: builtins.trace "package: ${toString drv}" (nix-utils.bundlers.deb {inherit system; program=program drv;});
 
       toDockerImage = {...}@drv:
         (nixpkgs.legacyPackages.${system}.dockerTools.buildLayeredImage {
