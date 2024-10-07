@@ -7,7 +7,7 @@
 {
   description = "Example bundlers";
 
-  inputs.nix-utils.url = "github:mjakobsche/nix-utils?rev=cfc56c4f5bc48a2ce557c1edd37345da1451815b";
+  inputs.nix-utils.url = "github:mjakobsche/nix-utils";
   inputs.nix-bundle.url = "github:matthewbauer/nix-bundle";
 
   outputs = { self, nixpkgs, nix-bundle, nix-utils }: let
@@ -48,6 +48,8 @@
       toRPM = drv: nix-utils.bundlers.rpm {inherit system; program=program drv;};
 
       toDEB = drv: nix-utils.bundlers.deb {inherit system; program=program drv;};
+
+      showPackage = drv: builtins.trace "package: " drv;
 
       toDockerImage = {...}@drv:
         (nixpkgs.legacyPackages.${system}.dockerTools.buildLayeredImage {
